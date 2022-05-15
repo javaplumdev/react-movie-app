@@ -9,7 +9,13 @@ function LandingPage() {
 
 	return (
 		<>
-			<p>This is landing page</p>
+			{popularMovies.map((item) => {
+				return (
+					<div key={item.id}>
+						<p>{item.original_title}</p>
+					</div>
+				);
+			})}
 		</>
 	);
 }
