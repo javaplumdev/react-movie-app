@@ -1,8 +1,25 @@
-.col-container {
-	display: table;
-	width: 100%;
+.App {
+	background-color: rgb(31, 31, 31);
+	overflow-x: hidden;
 }
 
-.col {
-	display: table-cell;
+.card-container {
+	width: 170px;
+
+	height: 300px;
+	margin: 5px;
+	position: relative;
+}
+
+.image-container {
+	width: 170px;
+	height: 200px;
+}
+
+.watch-button {
+	position: absolute;
+	bottom: 0;
+	width: 97%;
+	margin: 3px;
+	border: none;
 }

@@ -14,40 +14,29 @@ function LandingPage() {
 
 	return (
 		<Container>
-			<Row className="col-container">
-				{isLoading ? (
-					<renderLoading />
-				) : (
-					popularMovies.map((item) => {
-						return (
-							<Col key={item.id} xs={12} sm={6} md={4} lg={3} className="col">
-								<Card style={{ width: '15rem', margin: '.5em' }}>
-									<Card.Img
-										variant="top"
-										src={imagePath + item.poster_path}
-										style={{ height: '280px' }}
-									/>
-									<Card.Body>
-										<Card.Title>
-											{item.original_title.length > 18 ? (
-												<Card.Title>
-													{item.original_title.substr(0, 18)}...
-												</Card.Title>
-											) : (
-												<Card.Title>
-													{item.original_title.substr(0, 18)}
-												</Card.Title>
-											)}{' '}
-										</Card.Title>
-										<Button variant="primary" class="w-100">
-											Watch
-										</Button>
-									</Card.Body>
-								</Card>
-							</Col>
-						);
-					})
-				)}
+			<Row>
+				{popularMovies.map((item) => {
+					return (
+						<Col xs={6} sm={4} md={3} lg={2}>
+							<div className="card-container bg-dark">
+								<img
+									src={imagePath + item.poster_path}
+									className="image-container"
+								/>
+								{item.original_title.length > 28 ? (
+									<p className="p-2 text-light">
+										{item.original_title.substr(0, 28)}...
+									</p>
+								) : (
+									<p className="p-2 text-light">{item.original_title}</p>
+								)}
+								<button className="watch-button">
+									<small>Watch</small>
+								</button>
+							</div>
+						</Col>
+					);
+				})}
 			</Row>
 		</Container>
 	);
