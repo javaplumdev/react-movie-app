@@ -31,7 +31,13 @@ export function ContextProvider({ children }) {
 
 	return (
 		<CreateContext.Provider
-			value={{ popularMovies, isLoading, imagePath, trendingMovies }}
+			value={{
+				popularMovies,
+				isLoading,
+				imagePath,
+				trendingMovies,
+				api_key,
+			}}
 		>
 			{children}
 		</CreateContext.Provider>

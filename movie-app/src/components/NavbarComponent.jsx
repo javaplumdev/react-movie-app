@@ -22,7 +22,9 @@ function NavbarComponent() {
 				className="p-4"
 			>
 				<Container>
-					<Navbar.Brand href="/">Boomflix</Navbar.Brand>
+					<Link to="/">
+						<Navbar.Brand>Boomflix</Navbar.Brand>
+					</Link>
 					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="me-auto">
