@@ -1,5 +1,6 @@
 import './App.css';
 
+import NavbarComponent from './components/NavbarComponent';
 import LandingPage from './components/LandingPage';
 
 // Context
@@ -9,6 +10,7 @@ function App() {
 	return (
 		<div className="App">
 			<ContextProvider>
+				<NavbarComponent />
 				<LandingPage />
 			</ContextProvider>
 		</div>
