@@ -13,11 +13,14 @@ function LandingPage() {
 	console.log(popularMovies);
 
 	return (
-		<Container>
-			<Row>
-				{popularMovies.map((item) => {
-					return (
-						<Col xs={6} sm={4} md={3} lg={2}>
+		<Container className="text-light">
+			<h3 className="fs-4 fw-bold">Get the most popular movies right now.</h3>
+			<div className="cards">
+				{isLoading ? (
+					<renderLoading />
+				) : (
+					popularMovies.map((item) => {
+						return (
 							<div className="card-container bg-dark">
 								<img
 									src={imagePath + item.poster_path}
@@ -34,10 +37,10 @@ function LandingPage() {
 									<small>Watch</small>
 								</button>
 							</div>
-						</Col>
-					);
-				})}
-			</Row>
+						);
+					})
+				)}
+			</div>
 		</Container>
 	);
 }

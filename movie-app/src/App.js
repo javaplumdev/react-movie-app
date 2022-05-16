@@ -1,6 +1,7 @@
 import './App.css';
 
 import NavbarComponent from './components/NavbarComponent';
+import Hero from './components/Hero';
 import LandingPage from './components/LandingPage';
 
 // Context
@@ -11,6 +12,7 @@ function App() {
 		<div className="App">
 			<ContextProvider>
 				<NavbarComponent />
+				<Hero />
 				<LandingPage />
 			</ContextProvider>
 		</div>

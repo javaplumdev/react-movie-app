@@ -23,3 +23,13 @@
 	margin: 3px;
 	border: none;
 }
+
+.img-fluid {
+	margin-bottom: 3em;
+}
+
+.cards {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
