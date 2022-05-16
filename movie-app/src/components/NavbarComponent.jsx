@@ -8,6 +8,8 @@ import {
 	Button,
 } from 'react-bootstrap';
 
+import { Link } from 'react-router-dom';
+
 function NavbarComponent() {
 	return (
 		<>
@@ -17,9 +19,10 @@ function NavbarComponent() {
 				bg="dark"
 				variant="dark"
 				sticky="top"
+				className="p-4"
 			>
 				<Container>
-					<Navbar.Brand href="#home">Boomflix</Navbar.Brand>
+					<Navbar.Brand href="/">Boomflix</Navbar.Brand>
 					<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="me-auto">

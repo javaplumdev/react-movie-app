@@ -1,7 +1,10 @@
-import React, { useRef, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 
 import { CreateContext } from '../context/ContextProvider';
+
+// react router
+import { Link } from 'react-router-dom';
 
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,20 +16,18 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination, Autoplay } from 'swiper';
 
-import image from '../images/polar-film-show.png';
-
 function Hero() {
 	const { trendingMovies, imagePath } = useContext(CreateContext);
 
 	return (
 		<Container className="text-light">
-			<div className="my-5">
-				<h3 className="display-4 fw-bolder w-50">
-					Watch the most trending <br />
-					and popular movies right now.
-				</h3>
-				<img src={image} alt="sample" />
-			</div>
+			<h3 className="title-card display-4 fw-bolder w-75 my-5">
+				Watch the most trending <br />
+				and popular movies right now.
+			</h3>
+			<h3 className="fs-4 fw-bold my-4">
+				Don't miss the chance to watch what's trending today!
+			</h3>
 			<Swiper
 				spaceBetween={5}
 				pagination={{
@@ -58,7 +59,9 @@ function Hero() {
 				{trendingMovies.map((item) => {
 					return (
 						<SwiperSlide key={item.id}>
-							<img className="img-fluid" src={imagePath + item.poster_path} />
+							<Link to={`/${item.original_title}/${item.id}`}>
+								<img className="img-fluid" src={imagePath + item.poster_path} />
+							</Link>
 						</SwiperSlide>
 					);
 				})}
