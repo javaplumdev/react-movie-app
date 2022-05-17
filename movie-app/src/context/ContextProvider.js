@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export const CreateContext = createContext();
 
@@ -12,7 +13,9 @@ export function ContextProvider({ children }) {
 
 	const [trendingMovies, setTrendingMovies] = useState([]);
 	const [popularMovies, setPopularMovies] = useState([]);
+	const [queriedMovies, setQueriedMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const [movieName, setMovieName] = useState();
 
 	const internationalNumberFormat = new Intl.NumberFormat('en-US');
 
@@ -25,6 +28,18 @@ export function ContextProvider({ children }) {
 			setTrendingMovies(response.data.results);
 		});
 		setIsLoading(false);
+		searchMovies();
+	}
+
+	function searchMovies() {
+		const search_movies_url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${movieName}&page=1&include_adult=false`;
+		axios.get(search_movies_url).then((response) => {
+			setQueriedMovies(response.data.results);
+		});
+	}
+
+	function handleChange(name) {
+		setMovieName(name);
 	}
 
 	useEffect(() => {
@@ -42,6 +57,10 @@ export function ContextProvider({ children }) {
 				setIsLoading,
 				isLoading,
 				internationalNumberFormat,
+				searchMovies,
+				handleChange,
+				queriedMovies,
+				movieName,
 			}}
 		>
 			{children}

@@ -9,8 +9,13 @@ import {
 } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+
+import { CreateContext } from '../context/ContextProvider';
 
 function NavbarComponent() {
+	const { searchMovies, handleChange } = useContext(CreateContext);
+
 	return (
 		<>
 			<Navbar
@@ -51,8 +56,16 @@ function NavbarComponent() {
 									placeholder="Search a movie"
 									className="me-2"
 									aria-label="Search"
+									onChange={(e) => handleChange(e.target.value)}
 								/>
-								<Button variant="outline-light">Search</Button>
+								<Link to="/moviequery">
+									<Button
+										variant="outline-light"
+										onClick={() => searchMovies()}
+									>
+										Search
+									</Button>
+								</Link>
 							</Form>
 						</Nav>
 					</Navbar.Collapse>
