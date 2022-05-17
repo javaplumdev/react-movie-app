@@ -37,6 +37,8 @@ export function ContextProvider({ children }) {
 				imagePath,
 				trendingMovies,
 				api_key,
+				setIsLoading,
+				isLoading,
 			}}
 		>
 			{children}

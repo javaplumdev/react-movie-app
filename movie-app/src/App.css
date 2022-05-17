@@ -38,3 +38,10 @@
 	border-left: 0.2em solid #fff;
 	padding-left: 0.5em;
 }
+
+.genres {
+	padding: 1.2em;
+	height: 35px;
+	display: flex;
+	align-items: center;
+}
