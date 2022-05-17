@@ -14,6 +14,8 @@ export function ContextProvider({ children }) {
 	const [popularMovies, setPopularMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
+	const internationalNumberFormat = new Intl.NumberFormat('en-US');
+
 	function fetchApi() {
 		setIsLoading(true);
 		axios.get(popular_movies_url).then((response) => {
@@ -39,6 +41,7 @@ export function ContextProvider({ children }) {
 				api_key,
 				setIsLoading,
 				isLoading,
+				internationalNumberFormat,
 			}}
 		>
 			{children}

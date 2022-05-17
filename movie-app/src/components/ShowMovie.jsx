@@ -4,9 +4,12 @@ import axios from 'axios';
 import { CreateContext } from '../context/ContextProvider';
 import { Container } from 'react-bootstrap';
 
+import { BsFillStarFill } from 'react-icons/bs';
+
 function ShowMovie() {
 	const { id } = useParams();
-	const { api_key, imagePath } = useContext(CreateContext);
+	const { api_key, imagePath, internationalNumberFormat } =
+		useContext(CreateContext);
 	const [showMovies, setShowMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -44,21 +47,53 @@ function ShowMovie() {
 								</div>
 								<div className="mx-2" style={{ width: '460px' }}>
 									<h2 className="display-6 fw-bolder">{item.original_title}</h2>
-									<small>{item.vote_average}</small>
-									<div className="d-flex flex-wrap">
+									<p>"{item.tagline}"</p>
+									<div className="d-flex align-items-center mb-2">
+										<div className="me-1">
+											<BsFillStarFill className="fs-6 me-1" />
+											<small>{item.vote_average}</small>
+										</div>
+										<small>
+											{internationalNumberFormat.format(item.vote_count)} counts
+										</small>
+									</div>
+									<small>Runtime: {item.runtime} minutes</small>
+									<div className="d-flex flex-wrap mb-3">
 										{item.genres.map((genre) => {
 											return (
 												<div
 													key={genre.id}
-													className="genres bg-primary me-3 rounded my-2"
+													className="me-2 bg-primary p-2 rounded mt-3 m-1"
 												>
 													<small>{genre.name}</small>
 												</div>
 											);
 										})}
 									</div>
-
 									<p>{item.overview}</p>
+
+									<h5 className="mt-4">Production Companies</h5>
+									<div className="d-flex flex-wrap">
+										{item.production_companies.map((item) => {
+											return (
+												<small
+													key={item.id}
+													className="me-2 bg-primary p-2 rounded m-1"
+												>
+													{item.name}
+												</small>
+											);
+										})}
+									</div>
+
+									<h5 className="mt-4">Movie spent and earned:</h5>
+									<p>
+										Movie budget: $
+										{internationalNumberFormat.format(item.budget)}
+										<br></br>
+										Movie revenue: $
+										{internationalNumberFormat.format(item.revenue)}
+									</p>
 								</div>
 							</div>
 						);
