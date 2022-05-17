@@ -32,10 +32,19 @@ export function ContextProvider({ children }) {
 	}
 
 	function searchMovies() {
+		setIsLoading(true);
 		const search_movies_url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${movieName}&page=1&include_adult=false`;
 		axios.get(search_movies_url).then((response) => {
 			setQueriedMovies(response.data.results);
 		});
+	}
+
+	function loading() {
+		return (
+			<div className="text-center mt-5 pt-5">
+				<div class="spinner-border text-light" role="status"></div>
+			</div>
+		);
 	}
 
 	function handleChange(name) {
@@ -55,12 +64,12 @@ export function ContextProvider({ children }) {
 				trendingMovies,
 				api_key,
 				setIsLoading,
-				isLoading,
 				internationalNumberFormat,
 				searchMovies,
 				handleChange,
 				queriedMovies,
 				movieName,
+				loading,
 			}}
 		>
 			{children}

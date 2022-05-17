@@ -8,20 +8,12 @@ import { BsFillStarFill } from 'react-icons/bs';
 
 function ShowMovie() {
 	const { id } = useParams();
-	const { api_key, imagePath, internationalNumberFormat } =
+	const { api_key, imagePath, internationalNumberFormat, loading } =
 		useContext(CreateContext);
 	const [showMovies, setShowMovies] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const get_movie_details = `https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=en-US`;
-
-	function loading() {
-		return (
-			<div className="text-center mt-5 pt-5">
-				<div class="spinner-border text-light" role="status"></div>
-			</div>
-		);
-	}
 
 	useEffect(() => {
 		axios.get(get_movie_details).then((response) => {
@@ -29,8 +21,6 @@ function ShowMovie() {
 			setShowMovies([response.data]);
 		});
 	}, []);
-
-	console.log(showMovies);
 
 	return (
 		<Container>

@@ -6,7 +6,8 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function ResultMovie() {
-	const { queriedMovies, imagePath, movieName } = useContext(CreateContext);
+	const { queriedMovies, imagePath, movieName, loading, isLoading } =
+		useContext(CreateContext);
 
 	return (
 		<Container>
