@@ -14,7 +14,7 @@ function ResultMovie() {
 			{queriedMovies.length > 1 ? (
 				<>
 					<h3 className="text-light my-4">Search results for {movieName}</h3>
-					<div className="cards ">
+					<div className="cards">
 						{queriedMovies.map((item) => {
 							return (
 								<div key={item.id} className="card-container bg-dark">

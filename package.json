@@ -7,6 +7,7 @@
     "react-hot-toast": "^2.2.0",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
+    "react-youtube": "^9.0.1",
     "swiper": "^8.1.4"
   }
 }

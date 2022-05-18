@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
-import toast from 'react-hot-toast';
 
 export const CreateContext = createContext();
 
@@ -31,9 +30,23 @@ export function ContextProvider({ children }) {
 		searchMovies();
 	}
 
+	// function youtubeFunction(id) {
+	// 	const opts = {
+	// 		height: '390',
+	// 		width: '640',
+	// 		playerVars: {
+	// 			// https://developers.google.com/youtube/player_parameters
+	// 			autoplay: 1,
+	// 		},
+	// 	};
+
+	// 	return <YouTube key={id} videoId={`${id}`} opts={opts} />;
+	// }
+
 	function searchMovies() {
 		setIsLoading(true);
 		const search_movies_url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&query=${movieName}&page=1&include_adult=false`;
+
 		axios.get(search_movies_url).then((response) => {
 			setQueriedMovies(response.data.results);
 		});
