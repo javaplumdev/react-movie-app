@@ -6,11 +6,8 @@ import { Container } from 'react-bootstrap';
 
 function MovieReview() {
 	const { id } = useParams();
-
 	const { api_key } = useContext(CreateContext);
-
 	const movie_review_url = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${api_key}&language=en-US&page=1`;
-
 	const [movieReviewState, setMovieReviewState] = useState([]);
 
 	useEffect(() => {
@@ -18,8 +15,6 @@ function MovieReview() {
 			setMovieReviewState(response.data.results);
 		});
 	}, []);
-
-	console.log(movieReviewState);
 
 	return (
 		<Container>

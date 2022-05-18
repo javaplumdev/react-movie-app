@@ -52,6 +52,10 @@ export function ContextProvider({ children }) {
 		setMovieName(name);
 	}
 
+	function scrollToTop() {
+		window.scrollTop(0);
+	}
+
 	useEffect(() => {
 		fetchApi();
 	}, []);
@@ -71,6 +75,7 @@ export function ContextProvider({ children }) {
 				queriedMovies,
 				movieName,
 				loading,
+				scrollToTop,
 			}}
 		>
 			{children}

@@ -17,7 +17,7 @@ function ShowMovie() {
 		imagePath,
 		internationalNumberFormat,
 		loading,
-		youtubeFunction,
+		scrollToTop,
 	} = useContext(CreateContext);
 	const [showMovies, setShowMovies] = useState([]);
 	const [discoverMovies, setDiscoverMovies] = useState([]);
@@ -49,6 +49,11 @@ function ShowMovie() {
 	}, []);
 
 	function fetchShowMovie(id) {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+
 		const get_movie_details = `https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=en-US`;
 		const discover_movies_url = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${api_key}&language=en-US&page=1`;
 		const video_url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api_key}&language=en-US`;
@@ -70,11 +75,6 @@ function ShowMovie() {
 
 		axios.get(movie_review_url).then((response) => {
 			setMovieReviewState(response.data.results);
-		});
-
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
 		});
 	}
 
