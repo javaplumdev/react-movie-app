@@ -10,7 +10,7 @@ function YoutubeComponent({ youtubeID }) {
 			height="390"
 			src={`http://www.youtube.com/embed/${youtubeID}?autoplay=1&loop=1&autopause=0`}
 			allow="autoplay; fullscreen"
-			allowfullscreen
+			allowFullScreen
 		></iframe>
 	);
 }
