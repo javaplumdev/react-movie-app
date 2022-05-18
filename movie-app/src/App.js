@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import ShowMovie from './components/ShowMovie';
 import ResultsMovie from './components/ResultsMovie';
 import ReactHelmet from './components/Helmet';
+import MovieReview from './components/MovieReviews';
 
 // Context
 import { ContextProvider } from './context/ContextProvider';
@@ -49,6 +50,14 @@ function App() {
 							element={
 								<>
 									<ResultsMovie />
+								</>
+							}
+						></Route>
+						<Route
+							path="/moviereviews/:id"
+							element={
+								<>
+									<MovieReview />
 								</>
 							}
 						></Route>

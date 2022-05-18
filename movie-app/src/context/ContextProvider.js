@@ -26,22 +26,10 @@ export function ContextProvider({ children }) {
 		axios.get(trending_movies_url).then((response) => {
 			setTrendingMovies(response.data.results);
 		});
+
 		setIsLoading(false);
 		searchMovies();
 	}
-
-	// function youtubeFunction(id) {
-	// 	const opts = {
-	// 		height: '390',
-	// 		width: '640',
-	// 		playerVars: {
-	// 			// https://developers.google.com/youtube/player_parameters
-	// 			autoplay: 1,
-	// 		},
-	// 	};
-
-	// 	return <YouTube key={id} videoId={`${id}`} opts={opts} />;
-	// }
 
 	function searchMovies() {
 		setIsLoading(true);

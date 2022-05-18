@@ -1,6 +1,7 @@
 .App {
 	background-color: rgb(31, 31, 31);
 	overflow-x: hidden;
+	height: 100vh;
 }
 
 .card-container {

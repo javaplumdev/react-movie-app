@@ -48,8 +48,6 @@ function ShowMovie() {
 		});
 	}, []);
 
-	console.log(movieReviewState);
-
 	function fetchShowMovie(id) {
 		const get_movie_details = `https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=en-US`;
 		const discover_movies_url = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${api_key}&language=en-US&page=1`;
@@ -200,13 +198,15 @@ function ShowMovie() {
 									</div>
 								);
 							})}
+							<Link to={`/moviereviews/${id}`}>
+								<p className=" text-end mt-3 fw-bold text-decoration-none text-light">
+									See more
+								</p>
+							</Link>
 						</>
 					) : (
 						<p className="text-center lead">No movie reviews yet :( </p>
 					)}
-				</div>
-				<div className="text-end mt-3">
-					<p className="fw-bold">See more</p>
 				</div>
 			</div>
 

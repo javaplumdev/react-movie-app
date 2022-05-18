@@ -40,7 +40,9 @@ function ResultMovie() {
 					</div>
 				</>
 			) : (
-				<p className="text-light lead mt-5">There are no results</p>
+				<p className="text-light lead mt-5 text-center my-5 py-5">
+					There are no results
+				</p>
 			)}
 		</Container>
 	);
